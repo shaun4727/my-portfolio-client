@@ -1,0 +1,7 @@
+.right-divider-section {
+  display: flex;
+  justify-content: flex-end;
+}
+.right-divider-section .right-divider {
+  width: 250px;
+}

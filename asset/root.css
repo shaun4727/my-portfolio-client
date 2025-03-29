@@ -1,0 +1,43 @@
+:root {
+  --primary-color: #034c53;
+  --button-color: #fccb06;
+  --flex-gap: 25px;
+  --heading-size: 36px;
+  --margin-gap: 80px;
+  --skill-item-bg: #c5dbd8;
+  --description-color: rgba(0, 0, 0, 0.7);
+}
+.default-padding-body {
+  padding: 0px 64px;
+}
+
+* {
+  font-size: 20px;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media (max-width: 992px) {
+  .default-padding-body {
+    padding: 0px 64px;
+  }
+}
+
+@media (max-width: 576px) {
+  .default-padding-body {
+    padding: 0px 15px;
+  }
+}
+
+.body-background {
+  background-image: conic-gradient(
+    from 225deg at 0% 0%,
+    /* 225° = direct top-left direction */ #ffffff 0%,
+    #e0e6e5 50%
+  );
+  height: 100vh;
+}
+
+nextjs-portal {
+  display: none;
+}
