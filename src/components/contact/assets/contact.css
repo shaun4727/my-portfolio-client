@@ -56,7 +56,8 @@
   font-size: 10px;
 }
 .contact-section .contact-form-row .contact-form-message .message-submit {
-  width: 200px;
+  width: 100%;
+  margin-top: 10px;
   border: 1px solid var(--button-color);
   border-radius: var(--content-radius);
   height: 40px;
