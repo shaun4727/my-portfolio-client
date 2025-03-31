@@ -24,7 +24,7 @@ export default function ProjectSection() {
 
         <Row gutter={[16, 16]} className="project-row">
           <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="project-item">
+            <div className="project-item overlay-effect">
               <Image
                 src="/images/static/project-1.svg"
                 width={100}
@@ -32,10 +32,16 @@ export default function ProjectSection() {
                 className="project-item-image"
                 alt="project-item-image"
               />
+              <div className="slide-overlay">
+                <div className="overlay-content">
+                  <h4 className="overlay-title">Project One</h4>
+                  <Button className="view-all-projects">View Project</Button>
+                </div>
+              </div>
             </div>
           </Col>
           <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="project-item">
+            <div className="project-item overlay-effect">
               <Image
                 src="/images/static/project-2.svg"
                 width={100}
@@ -43,10 +49,16 @@ export default function ProjectSection() {
                 className="project-item-image"
                 alt="project-item-image"
               />
+              <div className="slide-overlay">
+                <div className="overlay-content">
+                  <h4 className="overlay-title">Project One</h4>
+                  <Button className="view-all-projects">View Project</Button>
+                </div>
+              </div>
             </div>
           </Col>
           <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="project-item">
+            <div className="project-item overlay-effect">
               <Image
                 src="/images/static/project-1.svg"
                 width={100}
@@ -54,10 +66,16 @@ export default function ProjectSection() {
                 className="project-item-image"
                 alt="project-item-image"
               />
+              <div className="slide-overlay">
+                <div className="overlay-content">
+                  <h4 className="overlay-title">Project One</h4>
+                  <Button className="view-all-projects">View Project</Button>
+                </div>
+              </div>
             </div>
           </Col>
           <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="project-item">
+            <div className="project-item overlay-effect">
               <Image
                 src="/images/static/project-2.svg"
                 width={100}
@@ -65,9 +83,17 @@ export default function ProjectSection() {
                 className="project-item-image"
                 alt="project-item-image"
               />
+              <div className="slide-overlay">
+                <div className="overlay-content">
+                  <h4 className="overlay-title">Project One</h4>
+                  <Button className="view-all-projects">View Project</Button>
+                </div>
+              </div>
             </div>
           </Col>
-          <Button className="view-all-projects">View All</Button>
+          <Col span={24}>
+            <Button className="view-all-projects">View All</Button>
+          </Col>
         </Row>
       </div>
     </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Bayon, Merriweather_Sans } from 'next/font/google';
 import '../../asset/root.css';
 import NavigationBar from '@/components/global/components/NavigationBar';
+import FooterSection from '@/components/global/components/footer-section';
 
 const bayonFont = Bayon({
   variable: '--font-bayon',
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <NavigationBar />
         {children}
+        <FooterSection />
       </body>
     </html>
   );

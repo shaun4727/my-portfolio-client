@@ -6,8 +6,8 @@ import '../asset/hero-section.css';
 export default function HeroSection() {
   return (
     <div className="hero-section default-padding-body">
-      <Row gutter={[16, 16]}>
-        <Col xs={24} sm={24} md={12} lg={13} xl={13} className="gutter-row">
+      <Row gutter={[16, 16]} className="hero-section-row">
+        <Col xs={24} sm={24} md={24} lg={13} xl={13} className="gutter-row">
           <div className="hero-detail">
             <h6 className="designation">Full Stack Web Developer</h6>
             <h2 className="title">
@@ -23,7 +23,7 @@ export default function HeroSection() {
             <Button className="resume">Download Resume</Button>
           </div>
         </Col>
-        <Col xs={24} sm={24} md={12} lg={11} xl={11} className="gutter-row">
+        <Col xs={24} sm={24} md={24} lg={11} xl={11} className="gutter-row">
           <div className="hero-image-section">
             <Image
               src="/images/static/hero-image.svg"

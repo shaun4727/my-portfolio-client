@@ -2,6 +2,7 @@
   display: flex;
   margin-top: var(--margin-gap);
 }
+
 .hero-section .hero-detail {
   padding: 15px 0;
   display: flex;
@@ -33,9 +34,13 @@
 .hero-section .hero-detail .resume {
   width: 200px;
   border: 1px solid var(--button-color);
-  border-radius: 25px;
+  border-radius: var(--content-radius);
   height: 50px;
   background: var(--button-color);
+}
+.hero-section .hero-detail .resume:hover {
+  border: 1px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
 }
 .hero-section .hero-detail .title {
   font-size: var(--heading-size);
@@ -44,8 +49,9 @@
   line-height: 1.3;
 }
 .hero-section .hero-detail .title .special {
-  font-size: 40px;
+  font-size: var(--heading-size);
   color: var(--primary-color);
+  font-family: var(--font-bayon);
 }
 
 .hero-section .hero-image-section .hero-image {
