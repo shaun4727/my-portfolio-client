@@ -8,7 +8,7 @@ export default function ProjectsSection() {
   return (
     <div className="projects-section default-padding-body">
       <Row gutter={[16, 16]} className="project-row">
-        <Col span={24} className="gutter-row">
+        <Col span={24} className="gutter-row project-column">
           <div className="project-header">
             <h4 className="title">List of projects that I have done</h4>
           </div>
@@ -36,7 +36,7 @@ export default function ProjectsSection() {
               className="project-image-three"
               alt="project-image"
             />
-            <div className="slide-overlay">
+            <div className="slide-overlay-projects">
               <div className="overlay-content">
                 <div className="title-description">
                   <h4 className="overlay-title">Overview</h4>
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
               className="project-image-three"
               alt="project-image"
             />
-            <div className="slide-overlay">
+            <div className="slide-overlay-projects">
               <div className="overlay-content">
                 <div className="title-description">
                   <h4 className="overlay-title">Overview</h4>
@@ -114,7 +114,7 @@ export default function ProjectsSection() {
               className="project-image-three"
               alt="project-image"
             />
-            <div className="slide-overlay">
+            <div className="slide-overlay-projects">
               <div className="overlay-content">
                 <div className="title-description">
                   <h4 className="overlay-title">Overview</h4>

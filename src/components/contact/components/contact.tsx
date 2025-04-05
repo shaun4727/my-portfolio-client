@@ -3,17 +3,36 @@
 import '../assets/contact.css';
 import Image from 'next/image';
 import { Button, Col, ConfigProvider, Form, FormProps, Input, Row } from 'antd';
+import { MessageType } from '@/types';
+import { toast } from 'sonner';
+import { sendMessageService } from '@/services/MessageService';
 const { TextArea } = Input;
 
-type FieldTypeRegister = {
-  fullname: string;
-  email: string;
-  message: string;
-};
-
 export default function ContactSection() {
-  const onFinish: FormProps<FieldTypeRegister>['onFinish'] = async (values) => {
-    console.log(values);
+  const [form] = Form.useForm();
+  const onFinish: FormProps<MessageType>['onFinish'] = async (values) => {
+    let toastId: string | number = 'contact';
+
+    try {
+      toastId = toast.loading('...Loading', { id: toastId });
+
+      const messageData = {
+        email: values.email,
+        fullname: values.fullname,
+        message: values.message,
+      };
+
+      const res = await sendMessageService(messageData);
+
+      if (res?.success) {
+        form.resetFields();
+        toast.success(res?.message, { id: toastId });
+      } else {
+        toast.error(res?.message, { id: toastId });
+      }
+    } catch (err) {
+      toast.error(err as string, { id: toastId });
+    }
   };
   return (
     <div className="contact-section default-padding-body">
@@ -75,11 +94,12 @@ export default function ContactSection() {
             <Form
               className="contact-form-message"
               name="basic"
+              form={form}
               layout="vertical"
               onFinish={onFinish}
               autoComplete="off"
             >
-              <Form.Item<FieldTypeRegister>
+              <Form.Item<MessageType>
                 label="Name"
                 name="fullname"
                 className="label-input"
@@ -90,7 +110,7 @@ export default function ContactSection() {
                   className="name-input"
                 />
               </Form.Item>
-              <Form.Item<FieldTypeRegister>
+              <Form.Item<MessageType>
                 label="Email"
                 name="email"
                 className="label-input"
@@ -101,7 +121,7 @@ export default function ContactSection() {
               >
                 <Input placeholder="Enter your email" className="input" />
               </Form.Item>
-              <Form.Item<FieldTypeRegister>
+              <Form.Item<MessageType>
                 label="Message"
                 name="message"
                 className="label-input"

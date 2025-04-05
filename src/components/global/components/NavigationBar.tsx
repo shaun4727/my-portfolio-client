@@ -3,15 +3,17 @@ import { ConfigProvider, Menu, MenuProps } from 'antd';
 import '../asset/NavigationBar.css';
 import { basicNavRoutes } from '../utils/constant';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function NavigationBar() {
+  const router = useRouter();
   const onClick: MenuProps['onClick'] = (e) => {
     document.title = e.key;
 
     if (e.key == 'logout') {
       console.log(e.key);
     } else {
-      console.log(e.key);
+      router.push(e.key);
     }
   };
 
@@ -25,6 +27,7 @@ export default function NavigationBar() {
               itemColor: '#000',
               popupBg: '#fff' /**background color for small device menu */,
               horizontalItemHoverColor: '#034c53',
+              horizontalItemSelectedColor: '#034c53',
             },
           },
         }}

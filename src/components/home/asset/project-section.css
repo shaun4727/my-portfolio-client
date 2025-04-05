@@ -47,18 +47,22 @@
 }
 
 /* overlay effect of project */
-.overlay-effect {
+.project-section .project-container .project-row .overlay-effect {
   position: relative;
   overflow: hidden;
   display: inline-block;
 }
 
-.overlay-effect:hover .slide-overlay {
+.project-section
+  .project-container
+  .project-row
+  .overlay-effect:hover
+  .slide-overlay {
   opacity: 1;
   height: 50%;
 }
 
-.slide-overlay {
+.project-section .project-container .project-row .slide-overlay {
   position: absolute;
   transition: 0.9s ease;
 
@@ -72,7 +76,11 @@
 
   background-color: rgba(0, 0, 0, 0.5);
 }
-.overlay-content {
+.project-section
+  .project-container
+  .project-row
+  .slide-overlay
+  .overlay-content {
   display: flex;
   flex-direction: column;
   justify-content: center;

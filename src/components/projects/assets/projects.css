@@ -1,6 +1,9 @@
 .projects-section {
   margin: 25px 0 var(--margin-gap) 0;
 }
+.projects-section .project-row .project-column {
+  margin-bottom: var(--margin-gap);
+}
 .projects-section .project-row .project-header {
   background-size: 100% 100%;
 
@@ -25,7 +28,6 @@
   color: var(--primary-color);
 }
 .projects-section .project-row .project-detail {
-  position: relative;
   min-height: 350px;
   box-shadow: 0px 24px 38px 5px rgba(0, 0, 0, 0.25);
 
@@ -60,13 +62,17 @@
 }
 
 /* overlay effect of project */
-
-.overlay-effect:hover .slide-overlay {
+.projects-section .project-row .overlay-effect {
+  position: relative;
+  overflow: hidden;
+  /* display: inline-block; */
+}
+.projects-section .project-row .overlay-effect:hover .slide-overlay-projects {
   opacity: 1;
   height: 100%;
 }
 
-.slide-overlay {
+.projects-section .project-row .slide-overlay-projects {
   position: absolute;
   transition: 0.9s ease;
 
@@ -80,7 +86,7 @@
   background-color: rgba(255, 255, 255, 1);
   z-index: 20;
 }
-.overlay-content {
+.projects-section .project-row .slide-overlay-projects .overlay-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,31 +94,53 @@
   margin-top: 10px;
   height: 100%;
 }
-.overlay-content .title-description {
+.projects-section
+  .project-row
+  .slide-overlay-projects
+  .overlay-content
+  .title-description {
   padding: 25px;
   display: flex;
   align-items: center;
 }
-.overlay-content .title-description .overlay-title {
+.projects-section
+  .project-row
+  .slide-overlay-projects
+  .overlay-content
+  .title-description
+  .overlay-title {
   font-family: var(--font-bayon);
   font-size: var(--heading-size);
   color: var(--primary-color);
   padding-right: 20px;
   line-height: 1.2;
 }
-.overlay-content .title-description .overlay-description {
+.projects-section
+  .project-row
+  .slide-overlay-projects
+  .overlay-content
+  .title-description
+  .overlay-description {
   text-align: justify;
   padding-left: 15px;
   border-left: 4px solid var(--button-color);
 }
-.overlay-content .view-project {
+.projects-section
+  .project-row
+  .slide-overlay-projects
+  .overlay-content
+  .view-project {
   width: 200px;
   border: 1px solid var(--button-color);
   border-radius: var(--content-radius);
   height: 50px;
   background: var(--button-color);
 }
-.overlay-content .view-project:hover {
+.projects-section
+  .project-row
+  .slide-overlay-projects
+  .overlay-content
+  .view-project:hover {
   border: 1px solid var(--primary-color) !important;
   color: var(--primary-color) !important;
 }
