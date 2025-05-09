@@ -17,8 +17,8 @@ export default function FooterSection() {
             alt="portfolio-logo"
           />
           <h4 className="footer-title">Contact</h4>
-          <p className="footer-line">+880 1834659206</p>
-          <p className="footer-line">shaun@gmail.com</p>
+          <p className="footer-line">+880 1944057819</p>
+          <p className="footer-line">hossain.shaun27@gmail.com</p>
         </Col>
         <Col xs={24} sm={24} md={8} lg={8} xl={8} className="gutter-row">
           <h4 className="footer-title">Services</h4>

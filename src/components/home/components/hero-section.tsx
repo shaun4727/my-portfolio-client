@@ -18,7 +18,7 @@ export default function HeroSection() {
               I'm a passionate and result driven web developer with a strong
               foundation in JavaScript. Through my journey as a developer I have
               learned various JavaScript frameworks and libraries. I'm working
-              as a Frontend developer in my current company for 3 years.{' '}
+              as a Frontend developer for 3 years.{' '}
             </p>
             <Button className="resume">Download Resume</Button>
           </div>

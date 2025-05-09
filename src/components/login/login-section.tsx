@@ -26,8 +26,8 @@ export default function LoginSection() {
        */
       const res = await loginUser(userInfo);
 
+      console.log(res);
       if (res?.success) {
-        console.log(res);
         router.push('/ps-dashboard');
         toast.success(res?.message, { id: toastId });
       } else {
