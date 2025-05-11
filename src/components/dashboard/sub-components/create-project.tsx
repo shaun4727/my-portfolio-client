@@ -303,7 +303,7 @@ export default function ProjectCreate({
             >
               <TextArea
                 showCount
-                maxLength={1000}
+                maxLength={219}
                 placeholder="Type project overview"
                 style={{ height: 120, resize: 'none' }}
               />

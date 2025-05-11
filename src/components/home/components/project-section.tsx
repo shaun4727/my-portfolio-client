@@ -5,11 +5,9 @@ import Image from 'next/image';
 import { Button, Col, Row } from 'antd';
 import RightDivider from '@/components/global/components/RightDivider';
 import { useEffect, useState } from 'react';
-import {
-  getProjectListForUserServices,
-  getSingleProjectForUserServices,
-} from '@/services/ProjectServices';
+import { getProjectListForUserServices } from '@/services/ProjectServices';
 import { TProject } from '@/types';
+import Link from 'next/link';
 
 export default function ProjectSection() {
   const [projectList, setProjectList] = useState<TProject[]>([]);
@@ -23,15 +21,6 @@ export default function ProjectSection() {
     try {
       const res = await getProjectListForUserServices();
       setProjectList(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const getSingleProject = async (id: string) => {
-    try {
-      const res = await getSingleProjectForUserServices(id);
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -75,12 +64,12 @@ export default function ProjectSection() {
                 <div className="slide-overlay">
                   <div className="overlay-content">
                     <h4 className="overlay-title">{project.name}</h4>
-                    <Button
-                      className="view-all-projects"
-                      onClick={() => getSingleProject(project._id)}
-                    >
-                      View Project
-                    </Button>
+                    <Link href={`/projects/${project._id}`}>
+                      {' '}
+                      <Button className="view-all-projects">
+                        View Project
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>

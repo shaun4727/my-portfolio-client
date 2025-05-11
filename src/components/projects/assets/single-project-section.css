@@ -14,7 +14,7 @@
   gap: 5px;
 }
 .single-project-section .project-img-list .project-img {
-  width: 100% !important;
+  width: 33% !important;
   max-height: 70px !important;
   object-fit: cover;
 }

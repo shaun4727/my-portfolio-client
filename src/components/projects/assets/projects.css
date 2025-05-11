@@ -35,7 +35,7 @@
 }
 .projects-section .project-row .project-detail .project-image-one {
   min-width: 225px;
-  height: auto;
+  height: 130px;
   position: absolute;
   bottom: 40px;
   left: 20px;
@@ -44,10 +44,10 @@
 }
 .projects-section .project-row .project-detail .project-image-three {
   position: absolute;
-  top: 60px;
+  top: 130px;
   right: 20px;
   min-width: 300px;
-  height: auto;
+  height: 130px !important;
   border: 8px solid #e0e6e5;
   z-index: 8;
 }
@@ -56,7 +56,7 @@
   left: 150px;
   top: 20px;
   min-width: 200px;
-  height: auto;
+  height: 130px !important;
   border: 8px solid #e0e6e5;
   z-index: 12;
 }
