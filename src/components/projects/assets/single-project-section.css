@@ -1,0 +1,42 @@
+.single-project-section {
+  margin: var(--margin-gap) 0 var(--margin-gap) 0;
+}
+
+.single-project-section .project-image .project-thumbnail {
+  width: 100% !important;
+  height: 250px !important;
+}
+.single-project-section .project-img-list {
+  margin-top: 10px;
+  display: flex;
+  width: 100% !important;
+  overflow: hidden;
+  gap: 5px;
+}
+.single-project-section .project-img-list .project-img {
+  width: 100% !important;
+  max-height: 70px !important;
+  object-fit: cover;
+}
+.single-project-section .project-img-list .project-img:hover {
+  border: 3px solid gray;
+}
+
+.single-project-section .project-detail-section .project-title {
+  font-family: var(--font-bayon);
+  font-size: var(--heading-size);
+  color: var(--primary-color);
+}
+.single-project-section .project-detail-section .project-description {
+  color: var(--description-color) !important;
+}
+.single-project-section .project-link {
+  margin-top: 25px;
+}
+.single-project-section .project-technology {
+  margin-top: 8px;
+}
+.single-project-section .project-technology span {
+  color: var(--description-color);
+  margin-left: 8px;
+}

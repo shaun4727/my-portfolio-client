@@ -66,3 +66,31 @@ export const getProjectListServices = async () => {
 export const revalidateProjects = async () => {
   revalidateTag('projects');
 };
+
+export const getProjectListForUserServices = async () => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/project/project-list-for-user`,
+      {
+        method: 'GET',
+      }
+    );
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getSingleProjectForUserServices = async (id: string) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/project/get-single-project/${id}`,
+      {
+        method: 'GET',
+      }
+    );
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};

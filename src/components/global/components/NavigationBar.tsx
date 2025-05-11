@@ -13,7 +13,7 @@ export default function NavigationBar() {
     if (e.key == 'logout') {
       console.log(e.key);
     } else {
-      router.push(e.key);
+      router.push(`/${e.key}`);
     }
   };
 

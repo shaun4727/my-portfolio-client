@@ -148,6 +148,23 @@ export default function SkillSection() {
               className="skill-item-logo"
               alt="skill-item-logo"
             />
+            <h4 className="skill-heading">CSS</h4>
+            <p className="skill-description">
+              Cascading Style Sheets is a style sheet language used for
+              specifying the presentation and styling of a document written in a
+              markup language such as HTML or XML.{' '}
+            </p>
+          </div>
+        </Col>
+        <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
+          <div className="skill-item">
+            <Image
+              src="/images/static/skill-item-logo.svg"
+              width={100}
+              height={100}
+              className="skill-item-logo"
+              alt="skill-item-logo"
+            />
             <h4 className="skill-heading">Bootstrap</h4>
             <p className="skill-description">
               Bootstrap is a free, open source front-end development framework

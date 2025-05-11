@@ -4,8 +4,39 @@ import '../asset/project-section.css';
 import Image from 'next/image';
 import { Button, Col, Row } from 'antd';
 import RightDivider from '@/components/global/components/RightDivider';
+import { useEffect, useState } from 'react';
+import {
+  getProjectListForUserServices,
+  getSingleProjectForUserServices,
+} from '@/services/ProjectServices';
+import { TProject } from '@/types';
 
 export default function ProjectSection() {
+  const [projectList, setProjectList] = useState<TProject[]>([]);
+
+  useEffect(() => {
+    getProjectList();
+  }, []);
+
+  const getProjectList = async () => {
+    setProjectList([]);
+    try {
+      const res = await getProjectListForUserServices();
+      setProjectList(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getSingleProject = async (id: string) => {
+    try {
+      const res = await getSingleProjectForUserServices(id);
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="project-section default-padding-body">
       <RightDivider />
@@ -23,74 +54,39 @@ export default function ProjectSection() {
         </h4>
 
         <Row gutter={[16, 16]} className="project-row">
-          <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="project-item overlay-effect">
-              <Image
-                src="/images/static/project-1.svg"
-                width={100}
-                height={100}
-                className="project-item-image"
-                alt="project-item-image"
-              />
-              <div className="slide-overlay">
-                <div className="overlay-content">
-                  <h4 className="overlay-title">Project One</h4>
-                  <Button className="view-all-projects">View Project</Button>
+          {projectList.map((project, index) => (
+            <Col
+              xs={24}
+              sm={24}
+              md={8}
+              lg={6}
+              xl={6}
+              key={index}
+              className="gutter-row"
+            >
+              <div className="project-item overlay-effect">
+                <Image
+                  src={project.thumbnail || '/images/static/tumbnail.png'}
+                  width={500}
+                  height={200}
+                  className="project-item-image"
+                  alt="project-item-image"
+                />
+                <div className="slide-overlay">
+                  <div className="overlay-content">
+                    <h4 className="overlay-title">{project.name}</h4>
+                    <Button
+                      className="view-all-projects"
+                      onClick={() => getSingleProject(project._id)}
+                    >
+                      View Project
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Col>
-          <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="project-item overlay-effect">
-              <Image
-                src="/images/static/project-2.svg"
-                width={100}
-                height={100}
-                className="project-item-image"
-                alt="project-item-image"
-              />
-              <div className="slide-overlay">
-                <div className="overlay-content">
-                  <h4 className="overlay-title">Project One</h4>
-                  <Button className="view-all-projects">View Project</Button>
-                </div>
-              </div>
-            </div>
-          </Col>
-          <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="project-item overlay-effect">
-              <Image
-                src="/images/static/project-1.svg"
-                width={100}
-                height={100}
-                className="project-item-image"
-                alt="project-item-image"
-              />
-              <div className="slide-overlay">
-                <div className="overlay-content">
-                  <h4 className="overlay-title">Project One</h4>
-                  <Button className="view-all-projects">View Project</Button>
-                </div>
-              </div>
-            </div>
-          </Col>
-          <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="project-item overlay-effect">
-              <Image
-                src="/images/static/project-2.svg"
-                width={100}
-                height={100}
-                className="project-item-image"
-                alt="project-item-image"
-              />
-              <div className="slide-overlay">
-                <div className="overlay-content">
-                  <h4 className="overlay-title">Project One</h4>
-                  <Button className="view-all-projects">View Project</Button>
-                </div>
-              </div>
-            </div>
-          </Col>
+            </Col>
+          ))}
+
           <Col span={24}>
             <Button className="view-all-projects">View All</Button>
           </Col>
