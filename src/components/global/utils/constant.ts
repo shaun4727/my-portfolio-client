@@ -18,4 +18,9 @@ export const basicNavRoutes: MenuItem[] = [
     key: 'contact',
     route: '/contact',
   },
+  {
+    label: 'Blog',
+    key: 'blog',
+    route: '/blog',
+  },
 ];

@@ -77,7 +77,9 @@ export default function ProjectSection() {
           ))}
 
           <Col span={24}>
-            <Button className="view-all-projects">View All</Button>
+            <Link href={`/projects`}>
+              <Button className="view-all-projects">View All</Button>
+            </Link>
           </Col>
         </Row>
       </div>

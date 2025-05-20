@@ -38,8 +38,8 @@ export default function ProjectsSection() {
             <h4 className="title">List of projects that I have done</h4>
           </div>
         </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12} className="gutter-row">
-          {projectList.map((project, index: number) => (
+        {projectList.map((project, index: number) => (
+          <Col xs={24} sm={24} md={12} lg={12} xl={12} className="gutter-row">
             <div className="project-detail overlay-effect">
               {project.images?.map(({ link }, index) => (
                 <Image
@@ -66,8 +66,8 @@ export default function ProjectsSection() {
                 </div>
               </div>
             </div>
-          ))}
-        </Col>
+          </Col>
+        ))}
       </Row>
     </div>
   );
