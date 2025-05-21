@@ -45,7 +45,13 @@ export default function HeroSection() {
                 with <span className="special">fullstack</span> innovation
               </h2>
               <p className="personal-detail">{hero.about_me} </p>
-              <Button className="resume">Download Resume</Button>
+              <Button
+                href="https://drive.google.com/uc?export=download&id=1EcDZaX5MX11tJjGdyyfKJhQNN60uZ6as"
+                target="_blank"
+                className="resume"
+              >
+                Download Resume
+              </Button>
             </div>
           </Col>
           <Col xs={24} sm={24} md={24} lg={11} xl={11} className="gutter-row">
