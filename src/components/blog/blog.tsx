@@ -3,14 +3,37 @@
 import Image from 'next/image';
 import { Card, Col, Drawer, Row } from 'antd';
 import './assets/blog.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { TBlog } from '@/types/home-page';
+import { getBlogSectionDataApi } from '@/services/HomeServices';
+import DOMPurify from 'dompurify';
 
 export default function BlogSection() {
+  const [projectList, setProjectList] = useState<TBlog[]>([]);
+  const [currBlog, setCurrBlog] = useState<TBlog | null>(null);
+
+  useEffect(() => {
+    getProjectList();
+  }, []);
+
+  const getProjectList = async () => {
+    setProjectList([]);
+    try {
+      const res = await getBlogSectionDataApi();
+      setProjectList(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
   };
 
+  const showSpecificBlog = (project: TBlog) => {
+    setCurrBlog(project);
+    showDrawer();
+  };
   const onClose = () => {
     setOpen(false);
   };
@@ -39,23 +62,21 @@ export default function BlogSection() {
           xl={24}
           className="gutter-row blog-section"
         >
-          <Card className="box-container box-shadow">
-            <h3 className="question-title">A question goes here?</h3>
-            <div className="blog-excerpt">
-              <p>
-                as opposed to using 'Content here, content here', making it look
-                like readable English. Many desktop publishing packages and web
-                page editors now use Lorem Ipsum as their default model text,
-                and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Various versions have evolved over the years,
-                sometimes by accident, sometimes on purpose (injected humour and
-                the like).
-              </p>
-              <span className="more-content" onClick={showDrawer}>
-                ..more
-              </span>
-            </div>
-          </Card>
+          {projectList.map((project, index) => (
+            <Card className="box-container box-shadow" key={index}>
+              <h3 className="question-title">{project.question}</h3>
+              <div className="blog-excerpt">
+                {project.excerpt}
+                <span
+                  className="more-content"
+                  onClick={() => showSpecificBlog(project)}
+                >
+                  ..more
+                </span>
+              </div>
+            </Card>
+          ))}
+
           <Drawer
             title="Blog Detail"
             width="55%"
@@ -63,18 +84,15 @@ export default function BlogSection() {
             onClose={onClose}
             open={open}
           >
-            <h3 className="question-title">A question goes here?</h3>
-            <div className="blog-excerpt">
-              <p>
-                as opposed to using 'Content here, content here', making it look
-                like readable English. Many desktop publishing packages and web
-                page editors now use Lorem Ipsum as their default model text,
-                and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy. Various versions have evolved over the years,
-                sometimes by accident, sometimes on purpose (injected humour and
-                the like).
-              </p>
-            </div>
+            <h3 className="question-title">{currBlog?.question}</h3>
+
+            <div
+              style={{ marginTop: '15px' }}
+              className="blog-excerpt"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(currBlog?.content as string),
+              }}
+            ></div>
           </Drawer>
         </Col>
       </Row>

@@ -30,6 +30,7 @@
 }
 .box-container {
   border-radius: var(--content-radius);
+  margin-bottom: 15px;
 }
 .question-title {
   font-size: var(--sub-heading);
@@ -45,4 +46,14 @@
 .box-container .blog-excerpt .more-content:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.blog-excerpt p {
+  margin-bottom: 15px;
+}
+.blog-excerpt pre {
+  background: #000;
+  color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
 }
