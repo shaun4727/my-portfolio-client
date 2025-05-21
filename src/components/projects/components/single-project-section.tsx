@@ -7,6 +7,8 @@ import { Col, Row } from 'antd';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import './../assets/single-project-section.css';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function SingleProjectSection({ id }: { id: string }) {
   const [projectDetail, setProjectDetail] = useState<TProject>();
@@ -14,6 +16,14 @@ export default function SingleProjectSection({ id }: { id: string }) {
 
   useEffect(() => {
     getProjectList();
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
   }, []);
 
   const getProjectList = async () => {
@@ -36,7 +46,7 @@ export default function SingleProjectSection({ id }: { id: string }) {
     <Row gutter={[16, 16]} className="project-row">
       <Col xs={24} sm={24} md={10} lg={8} xl={8} className="gutter-row">
         {/* {res} */}
-        <div className="project-image">
+        <div className="project-image" data-aos="fade-right">
           <Image
             src={thumbnail || '/images/static/tumbnail.png'}
             width={500}
@@ -63,7 +73,7 @@ export default function SingleProjectSection({ id }: { id: string }) {
         </div>
       </Col>
       <Col xs={24} sm={24} md={14} lg={16} xl={16} className="gutter-row">
-        <div className="project-detail-section">
+        <div className="project-detail-section" data-aos="fade-left">
           <h4 className="project-title">Overview</h4>
           <p className="project-description">{projectDetail?.overview}</p>
         </div>

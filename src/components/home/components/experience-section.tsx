@@ -7,12 +7,22 @@ import { Col, Row } from 'antd';
 import { useEffect, useState } from 'react';
 import { TExperience } from '@/types/home-page';
 import { getExperienceSectionDataApi } from '@/services/HomeServices';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function ExperienceSection() {
   const [experienceData, setExperienceData] = useState<TExperience[]>([]);
 
   useEffect(() => {
     getExperienceSectionData();
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
   }, []);
 
   const getExperienceSectionData = async () => {
@@ -28,7 +38,7 @@ export default function ExperienceSection() {
   return (
     <div className="experience-section default-padding-body">
       <LeftDivider />
-      <h4 className="heading">
+      <h4 className="heading" data-aos="fade-up">
         {' '}
         <Image
           src="/images/static/experience-icon.svg"
@@ -43,7 +53,7 @@ export default function ExperienceSection() {
       <Row gutter={[16, 16]} className="experience-row">
         <Col xs={24} sm={24} md={24} lg={8} xl={8} className="gutter-row">
           {experienceData.map((data, index) => (
-            <div className="company-info" key={index}>
+            <div className="company-info" key={index} data-aos="zoom-in-down">
               <div className="name-work">
                 <h4 className="company-name">{data.company_name}</h4>
                 <p className="working-since">
@@ -57,9 +67,15 @@ export default function ExperienceSection() {
           ))}
         </Col>
         <Col xs={24} sm={24} md={24} lg={16} xl={16} className="gutter-row">
-          <h4 className="roles-responsibility">Roles &amp; Responsibility</h4>
+          <h4 className="roles-responsibility" data-aos="fade-down">
+            Roles &amp; Responsibility
+          </h4>
           {experienceData?.map((exp, index) => (
-            <ul className="responsibility-list" key={index}>
+            <ul
+              className="responsibility-list"
+              key={index}
+              data-aos="zoom-in-down"
+            >
               {exp.responsibilities.map((resp, ind) => (
                 <li key={ind}>{resp}</li>
               ))}

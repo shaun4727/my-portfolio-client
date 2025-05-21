@@ -4,9 +4,24 @@ import '../asset/NavigationBar.css';
 import { basicNavRoutes } from '../utils/constant';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function NavigationBar() {
   const router = useRouter();
+
+  useEffect(() => {
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
+  }, []);
+
   const onClick: MenuProps['onClick'] = (e) => {
     document.title = e.key;
 
@@ -32,7 +47,10 @@ export default function NavigationBar() {
           },
         }}
       >
-        <div className={`default-padding-body navigation-menu`}>
+        <div
+          className={`default-padding-body navigation-menu`}
+          data-aos="zoom-out"
+        >
           <Image
             src="/images/static/portfolio-logo.svg"
             width={100}

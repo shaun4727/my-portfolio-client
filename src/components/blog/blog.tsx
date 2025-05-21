@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import { TBlog } from '@/types/home-page';
 import { getBlogSectionDataApi } from '@/services/HomeServices';
 import DOMPurify from 'dompurify';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function BlogSection() {
   const [projectList, setProjectList] = useState<TBlog[]>([]);
@@ -41,7 +43,7 @@ export default function BlogSection() {
     <div className="blog-section default-padding-body">
       <Row gutter={[16, 16]} className="blog-row">
         <Col span={24} className="gutter-row">
-          <div className="blog-header">
+          <div className="blog-header" data-aos="fade-left">
             <Image
               src="/images/static/messageIcon.svg"
               width={100}
@@ -63,7 +65,11 @@ export default function BlogSection() {
           className="gutter-row blog-section"
         >
           {projectList.map((project, index) => (
-            <Card className="box-container box-shadow" key={index}>
+            <Card
+              className="box-container box-shadow"
+              key={index}
+              data-aos="fade-up"
+            >
               <h3 className="question-title">{project.question}</h3>
               <div className="blog-excerpt">
                 {project.excerpt}
@@ -84,10 +90,13 @@ export default function BlogSection() {
             onClose={onClose}
             open={open}
           >
-            <h3 className="question-title">{currBlog?.question}</h3>
+            <h3 className="question-title" data-aos="zoom-in">
+              {currBlog?.question}
+            </h3>
 
             <div
               style={{ marginTop: '15px' }}
+              data-aos="zoom-in-up"
               className="blog-excerpt"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(currBlog?.content as string),

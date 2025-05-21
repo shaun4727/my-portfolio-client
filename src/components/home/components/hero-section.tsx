@@ -5,12 +5,22 @@ import '../asset/hero-section.css';
 import { getHeroSectionDataApi } from '@/services/HomeServices';
 import { THeroSection } from '@/types/home-page';
 import { useEffect, useState } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function HeroSection() {
   const [heroSection, setHeroSection] = useState<THeroSection[]>([]);
 
   useEffect(() => {
     getHeroSectionData();
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
   }, []);
 
   const getHeroSectionData = async () => {
@@ -28,7 +38,7 @@ export default function HeroSection() {
       {heroSection.map((hero, index) => (
         <Row gutter={[16, 16]} className="hero-section-row" key={index}>
           <Col xs={24} sm={24} md={24} lg={13} xl={13} className="gutter-row">
-            <div className="hero-detail">
+            <div className="hero-detail" data-aos="fade-right">
               <h6 className="designation"> {hero.stack} Web Developer</h6>
               <h2 className="title">
                 Bringing <span className="special">Imagination</span> to life
@@ -39,7 +49,7 @@ export default function HeroSection() {
             </div>
           </Col>
           <Col xs={24} sm={24} md={24} lg={11} xl={11} className="gutter-row">
-            <div className="hero-image-section">
+            <div className="hero-image-section" data-aos="fade-left">
               <Image
                 src="/images/static/hero-image.svg"
                 width={100}

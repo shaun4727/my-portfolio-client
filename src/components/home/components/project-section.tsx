@@ -8,12 +8,22 @@ import { useEffect, useState } from 'react';
 import { getProjectListForUserServices } from '@/services/ProjectServices';
 import { TProject } from '@/types';
 import Link from 'next/link';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function ProjectSection() {
   const [projectList, setProjectList] = useState<TProject[]>([]);
 
   useEffect(() => {
     getProjectList();
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
   }, []);
 
   const getProjectList = async () => {
@@ -42,7 +52,11 @@ export default function ProjectSection() {
           My Projects
         </h4>
 
-        <Row gutter={[16, 16]} className="project-row">
+        <Row
+          gutter={[16, 16]}
+          className="project-row"
+          style={{ justifyContent: 'center' }}
+        >
           {projectList.map((project, index) => (
             <Col
               xs={24}
@@ -53,7 +67,7 @@ export default function ProjectSection() {
               key={index}
               className="gutter-row"
             >
-              <div className="project-item overlay-effect">
+              <div className="project-item overlay-effect" data-aos="flip-up">
                 <Image
                   src={project.thumbnail || '/images/static/tumbnail.png'}
                   width={500}

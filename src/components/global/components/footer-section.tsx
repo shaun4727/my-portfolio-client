@@ -3,10 +3,23 @@
 import Image from 'next/image';
 import '../asset/footer-section.css';
 import { Col, Row } from 'antd';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function FooterSection() {
+  useEffect(() => {
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
+  }, []);
   return (
-    <div className="footer-section default-padding-body">
+    <div className="footer-section default-padding-body" data-aos="zoom-out">
       <Row gutter={[16, 16]} className="footer-row">
         <Col xs={24} sm={24} md={8} lg={8} xl={8} className="gutter-row">
           <Image

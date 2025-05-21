@@ -7,9 +7,22 @@ import { MessageType } from '@/types';
 import { toast } from 'sonner';
 import { sendMessageService } from '@/services/MessageService';
 const { TextArea } = Input;
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function ContactSection() {
   const [form] = Form.useForm();
+  useEffect(() => {
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
+  }, []);
   const onFinish: FormProps<MessageType>['onFinish'] = async (values) => {
     let toastId: string | number = 'contact';
 
@@ -38,7 +51,7 @@ export default function ContactSection() {
     <div className="contact-section default-padding-body">
       <Row gutter={[16, 16]} className="contact-row">
         <Col span={24} className="gutter-row">
-          <div className="contact-header">
+          <div className="contact-header" data-aos="zoom-in-up">
             <Image
               src="/images/static/messageIcon.svg"
               width={100}
@@ -50,7 +63,7 @@ export default function ContactSection() {
           </div>
         </Col>
       </Row>
-      <Row gutter={[16, 16]} className="contact-form-row">
+      <Row gutter={[16, 16]} className="contact-form-row" data-aos="flip-down">
         <Col
           xs={24}
           sm={24}

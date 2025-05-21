@@ -6,9 +6,22 @@ import { toast } from 'sonner';
 import { FieldTypeLogin } from '@/types';
 import { loginUser } from '@/services/AuthService';
 import { useRouter } from 'next/navigation';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function LoginSection() {
   const router = useRouter();
+  useEffect(() => {
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
+  });
   const onFinish: FormProps<FieldTypeLogin>['onFinish'] = async (values) => {
     let toastId: string | number = 'login';
 
@@ -41,7 +54,11 @@ export default function LoginSection() {
     <div className="login-page default-padding-body">
       <Row gutter={[16, 16]} className="login-section-row">
         <Col span={24} className="gutter-row">
-          <Card className="login-card">
+          <Card
+            className="login-card"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
+          >
             <h1 className="login-title">Login Page</h1>
             <Form
               className="login-form"

@@ -7,12 +7,22 @@ import { useEffect, useState } from 'react';
 import { TProject } from '@/types';
 import { getProjectListForUserServices } from '@/services/ProjectServices';
 import Link from 'next/link';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function ProjectsSection() {
   const [projectList, setProjectList] = useState<TProject[]>([]);
 
   useEffect(() => {
     getProjectList();
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
   }, []);
 
   const getProjectList = async () => {
@@ -34,13 +44,16 @@ export default function ProjectsSection() {
     <div className="projects-section default-padding-body">
       <Row gutter={[16, 16]} className="project-row">
         <Col span={24} className="gutter-row project-column">
-          <div className="project-header">
+          <div className="project-header" data-aos="zoom-out">
             <h4 className="title">List of projects that I have done</h4>
           </div>
         </Col>
         {projectList.map((project, index: number) => (
           <Col xs={24} sm={24} md={12} lg={12} xl={12} className="gutter-row">
-            <div className="project-detail overlay-effect">
+            <div
+              className="project-detail overlay-effect"
+              data-aos="zoom-out-up"
+            >
               {project.images?.map(({ link }, index) => (
                 <Image
                   src={link || '/images/static/tumbnail.png'}

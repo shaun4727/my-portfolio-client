@@ -7,12 +7,22 @@ import { Col, Row } from 'antd';
 import { useEffect, useState } from 'react';
 import { TSkill } from '@/types/home-page';
 import { getSkillSectionDataApi } from '@/services/HomeServices';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function SkillSection() {
   const [skillData, setSkillData] = useState<TSkill[]>([]);
 
   useEffect(() => {
     getSkillSectionData();
+    Aos.init({
+      duration: 1200,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      once: false, // animate every time on scroll
+      mirror: true, // animate out while scrolling up
+    });
   }, []);
 
   const getSkillSectionData = async () => {
@@ -28,7 +38,7 @@ export default function SkillSection() {
   return (
     <div className="skill-section default-padding-body">
       <LeftDivider />
-      <h4 className="heading">
+      <h4 className="heading" data-aos="fade-up-right">
         {' '}
         <Image
           src="/images/static/skill-icon.svg"
@@ -43,7 +53,7 @@ export default function SkillSection() {
       <Row gutter={[16, 16]} className="skill-row">
         {skillData?.map((skill, index) => (
           <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
-            <div className="skill-item">
+            <div className="skill-item" data-aos="zoom-in-up">
               <Image
                 src={skill.skill_icon}
                 width={100}
