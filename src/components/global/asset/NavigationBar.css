@@ -25,13 +25,17 @@
 }
 
 @media (max-width: 665px) {
+  .portfolio-logo {
+    width: 100%;
+  }
   .main-menu {
     max-height: 30px;
-    width: 100% !important;
+    width: 90% !important;
   }
 
   .navigation-menu {
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
   }
   .portfolio-logo {
     width: 150px;

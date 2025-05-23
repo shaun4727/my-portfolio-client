@@ -29,6 +29,7 @@
   .smaller-screen-alignment {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     overflow: hidden;
   }
