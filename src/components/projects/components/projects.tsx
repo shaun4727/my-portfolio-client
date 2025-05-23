@@ -49,7 +49,15 @@ export default function ProjectsSection() {
           </div>
         </Col>
         {projectList.map((project, index: number) => (
-          <Col xs={24} sm={24} md={12} lg={12} xl={12} className="gutter-row">
+          <Col
+            xs={24}
+            sm={24}
+            md={12}
+            lg={12}
+            xl={12}
+            className="gutter-row"
+            key={index}
+          >
             <div
               className="project-detail overlay-effect"
               data-aos="zoom-out-up"

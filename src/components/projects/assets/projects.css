@@ -148,10 +148,21 @@
 }
 
 @media (max-width: 665px) {
-  * {
-    overflow-x: hidden;
+  .projects-section > * {
+    font-size: var(--smaller-screen-regular-size);
   }
   .projects-section .project-row .project-detail .project-image-three {
     top: 90px;
+  }
+  .projects-section .project-row .project-header .title {
+    font-size: var(--smaller-screen-header-size);
+  }
+  ..projects-section
+    .project-row
+    .slide-overlay-projects
+    .overlay-content
+    .title-description
+    .overlay-title {
+    font-size: var(--smaller-screen-heading-size);
   }
 }
