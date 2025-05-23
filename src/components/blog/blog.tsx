@@ -93,7 +93,7 @@ export default function BlogSection() {
 
           <Drawer
             title="Blog Detail"
-            width="55%"
+            width="75%"
             closable={{ 'aria-label': 'Close Button' }}
             onClose={onClose}
             open={open}
@@ -103,7 +103,7 @@ export default function BlogSection() {
             </h3>
 
             <div
-              style={{ marginTop: '15px' }}
+              style={{ marginTop: '15px', display: 'flex', flexWrap: 'wrap' }}
               data-aos="zoom-in-up"
               className="blog-excerpt"
               dangerouslySetInnerHTML={{

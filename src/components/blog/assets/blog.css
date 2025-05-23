@@ -57,3 +57,18 @@
   padding: 15px;
   margin-bottom: 15px;
 }
+
+@media (max-width: 665px) {
+  .blog-section .blog-row .blog-header .title {
+    font-size: var(--smaller-screen-heading-size) !important;
+  }
+  .question-title {
+    font-size: var(--smaller-screen-sub-heading-size);
+  }
+  .blog-excerpt > * {
+    font-size: var(--smaller-screen-regular-size);
+  }
+  .blog-excerpt pre {
+    white-space: pre-wrap;
+  }
+}
