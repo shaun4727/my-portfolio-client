@@ -195,3 +195,7 @@
 /* Extra large (large desktops) */
 @media (min-width: 1200px) {
 }
+:where(.css-e9sgc0).ant-carousel .slick-prev,
+:where(.css-e9sgc0).ant-carousel .slick-next {
+  color: #000 !important;
+}
