@@ -48,6 +48,9 @@
   cursor: pointer;
 }
 
+.blog-section .blog-excerpt {
+  margin-top: 15px;
+}
 .blog-excerpt p {
   margin-bottom: 15px;
 }

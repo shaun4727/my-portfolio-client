@@ -103,7 +103,6 @@ export default function BlogSection() {
             </h3>
 
             <div
-              style={{ marginTop: '15px', display: 'flex', flexWrap: 'wrap' }}
               data-aos="zoom-in-up"
               className="blog-excerpt"
               dangerouslySetInnerHTML={{
