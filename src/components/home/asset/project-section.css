@@ -20,7 +20,7 @@
 }
 
 .project-section .project-container .project-item-image {
-  border: 16px solid var(--border-shade);
+  /* border: 16px solid var(--border-shade); */
   border-radius: var(--content-radius);
   object-fit: contain;
   width: 100%;
