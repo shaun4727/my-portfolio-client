@@ -16,6 +16,14 @@ export default function BlogSection() {
 
   useEffect(() => {
     getProjectList();
+    Aos.init({
+      duration: 1500,
+      offset: 80,
+      delay: 0,
+      easing: 'ease-in-out-cubic',
+      once: true, // animate every time on scroll
+      mirror: false, // animate out while scrolling up
+    });
   }, []);
 
   const getProjectList = async () => {

@@ -2,7 +2,7 @@
 
 import '../asset/project-section.css';
 import Image from 'next/image';
-import { Button, Col, Row } from 'antd';
+import { Button, Carousel, Col, ConfigProvider, Row } from 'antd';
 import RightDivider from '@/components/global/components/RightDivider';
 import { useEffect, useState } from 'react';
 import { getProjectListForUserServices } from '@/services/ProjectServices';
@@ -17,12 +17,12 @@ export default function ProjectSection() {
   useEffect(() => {
     getProjectList();
     Aos.init({
-      duration: 1200,
-      offset: 100,
-      delay: 100,
-      easing: 'ease-in-out',
-      once: false, // animate every time on scroll
-      mirror: true, // animate out while scrolling up
+      duration: 1500,
+      offset: 80,
+      delay: 0,
+      easing: 'ease-in-out-cubic',
+      once: true, // animate every time on scroll
+      mirror: false, // animate out while scrolling up
     });
   }, []);
 
@@ -52,50 +52,72 @@ export default function ProjectSection() {
           My Projects
         </h4>
 
-        <Row
-          gutter={[16, 16]}
-          className="project-row"
-          style={{ justifyContent: 'center' }}
+        <ConfigProvider
+          theme={{
+            components: {
+              Carousel: {
+                /* here is your component tokens */
+                arrowSize: 30,
+              },
+            },
+            token: {
+              /* here is your global tokens */
+              colorText: 'red',
+            },
+          }}
         >
-          {projectList.map((project, index) => (
-            <Col
-              xs={24}
-              sm={24}
-              md={8}
-              lg={6}
-              xl={6}
-              key={index}
-              className="gutter-row"
-            >
-              <div className="project-item overlay-effect" data-aos="flip-up">
-                <Image
-                  src={project.thumbnail || '/images/static/tumbnail.png'}
-                  width={500}
-                  height={200}
-                  className="project-item-image"
-                  alt="project-item-image"
-                />
-                <div className="slide-overlay">
-                  <div className="overlay-content">
-                    <h4 className="overlay-title">{project.name}</h4>
-                    <Link href={`/projects/${project._id}`}>
+          <Carousel arrows infinite={false}>
+            {projectList.map((project, index) => (
+              <div>
+                <div className="carousel-item-container">
+                  <Row gutter={[16, 16]} className="project-row">
+                    <Col
+                      xs={24}
+                      sm={24}
+                      md={10}
+                      lg={10}
+                      xl={10}
+                      className="gutter-row"
+                    >
                       {' '}
-                      <Button className="view-all-projects">
-                        View Project
-                      </Button>
-                    </Link>
-                  </div>
+                      <Image
+                        src={project.thumbnail || '/images/static/tumbnail.png'}
+                        width={500}
+                        height={300}
+                        className="project-item-image"
+                        alt="project-item-image"
+                        data-aos="fade-up-right"
+                      />{' '}
+                    </Col>
+                    <Col
+                      xs={24}
+                      sm={24}
+                      md={14}
+                      lg={14}
+                      xl={14}
+                      className="gutter-row"
+                    >
+                      <div className="description" data-aos="zoom-in-up">
+                        <h3>{project.name}</h3>
+                        <div className="technologies">
+                          <span className="technology">Next JS</span>
+                          <span className="technology">React JS</span>
+                          <span className="technology">TypeScript</span>
+                          <span className="technology">Node JS</span>
+                          <span className="technology">Antd</span>
+                        </div>
+                        <p className="short-description">{project.overview}</p>
+                        <Link href={`/projects/${project._id}`}>
+                          <Button className="project-btn">View Project</Button>
+                        </Link>
+                      </div>
+                    </Col>
+                  </Row>
                 </div>
               </div>
-            </Col>
-          ))}
-
-          <Col span={24}>
-            <Link href={`/projects`}>
-              <Button className="view-all-projects">View All</Button>
-            </Link>
-          </Col>
-        </Row>
+            ))}
+          </Carousel>
+        </ConfigProvider>
       </div>
     </div>
   );

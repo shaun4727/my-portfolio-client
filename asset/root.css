@@ -1,6 +1,7 @@
 :root {
   --primary-color: #034c53;
   --button-color: #fccb06;
+  --border-shade: #efefef;
   --flex-gap: 25px;
   --heading-size: 36px;
   --regular-description-size: 20px;
@@ -9,7 +10,7 @@
   --skill-item-bg: #c5dbd8;
   --smaller-screen-heading-size: 22px;
   --smaller-screen-sub-heading-size: 18px;
-  --smaller-screen-regular-size: 14px;
+  --smaller-screen-regular-size: 12px;
   --sub-heading: 24px;
   --content-radius: 25px;
   --description-color: rgba(0, 0, 0, 0.7);
@@ -39,7 +40,7 @@
 
 @media (max-width: 665px) {
   .default-padding-body {
-    padding: 0px 15px;
+    padding: 0px 32px;
   }
   * {
     font-size: var(--smaller-screen-regular-size);

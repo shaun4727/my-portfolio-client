@@ -1,5 +1,6 @@
 .projects-section {
   margin: 25px 0 var(--margin-gap) 0;
+  overflow-x: hidden;
 }
 .projects-section .project-row .project-column {
   margin-bottom: var(--margin-gap);
@@ -30,8 +31,9 @@
 .projects-section .project-row .project-detail {
   min-height: 350px;
   box-shadow: 0px 24px 38px 5px rgba(0, 0, 0, 0.25);
-
+  margin-bottom: 15px;
   background: #fff;
+  overflow-x: hidden;
 }
 .projects-section .project-row .project-detail .project-image-one {
   min-width: 225px;
@@ -143,4 +145,13 @@
   .view-project:hover {
   border: 1px solid var(--primary-color) !important;
   color: var(--primary-color) !important;
+}
+
+@media (max-width: 665px) {
+  * {
+    overflow-x: hidden;
+  }
+  .projects-section .project-row .project-detail .project-image-three {
+    top: 90px;
+  }
 }

@@ -14,12 +14,12 @@ export default function LoginSection() {
   const router = useRouter();
   useEffect(() => {
     Aos.init({
-      duration: 1200,
-      offset: 100,
-      delay: 100,
-      easing: 'ease-in-out',
-      once: false, // animate every time on scroll
-      mirror: true, // animate out while scrolling up
+      duration: 1500,
+      offset: 80,
+      delay: 0,
+      easing: 'ease-in-out-cubic',
+      once: true, // animate every time on scroll
+      mirror: false, // animate out while scrolling up
     });
   });
   const onFinish: FormProps<FieldTypeLogin>['onFinish'] = async (values) => {

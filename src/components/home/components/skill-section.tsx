@@ -16,12 +16,12 @@ export default function SkillSection() {
   useEffect(() => {
     getSkillSectionData();
     Aos.init({
-      duration: 1200,
-      offset: 100,
-      delay: 100,
-      easing: 'ease-in-out',
-      once: false, // animate every time on scroll
-      mirror: true, // animate out while scrolling up
+      duration: 1500,
+      offset: 80,
+      delay: 0,
+      easing: 'ease-in-out-cubic',
+      once: true, // animate every time on scroll
+      mirror: false, // animate out while scrolling up
     });
   }, []);
 
@@ -52,7 +52,15 @@ export default function SkillSection() {
 
       <Row gutter={[16, 16]} className="skill-row">
         {skillData?.map((skill, index) => (
-          <Col xs={24} sm={24} md={8} lg={6} xl={6} className="gutter-row">
+          <Col
+            xs={24}
+            sm={24}
+            md={12}
+            lg={8}
+            xl={6}
+            style={{ display: 'flex' }}
+            className="gutter-row"
+          >
             <div className="skill-item" data-aos="zoom-in-up">
               <Image
                 src={skill.skill_icon}

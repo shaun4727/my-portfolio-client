@@ -50,6 +50,7 @@
 .experience-row .roles-responsibility {
   font-size: var(--sub-heading);
   color: var(--primary-color);
+  width: 100%;
 }
 
 .experience-row .responsibility-list {

@@ -11,6 +11,7 @@
 }
 .footer-section .footer-line {
   color: var(--description-color);
+  word-wrap: break-word !important;
 }
 
 .footer-section .portfolio-logo {
@@ -24,5 +25,11 @@
   }
   .portfolio-logo {
     width: 150px !important;
+  }
+  .smaller-screen-alignment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
   }
 }
