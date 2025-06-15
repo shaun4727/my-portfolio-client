@@ -46,7 +46,7 @@ export default function HeroSection() {
               </h2>
               <p className="personal-detail">{hero.about_me} </p>
               <Button
-                href="https://drive.google.com/uc?export=download&id=1EcDZaX5MX11tJjGdyyfKJhQNN60uZ6as"
+                href="https://drive.google.com/file/d/1zQghqYZCiSKNi7Iqyu90TwdfN4LI9UEK/view?usp=sharing"
                 target="_blank"
                 className="resume"
               >
